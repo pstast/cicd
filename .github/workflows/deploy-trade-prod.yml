@@ -1,0 +1,14 @@
+name: deploy-trade-prod
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  deploy-trade-prod:
+    runs-on: ubuntu-20.04
+    environment: trade
+
+    steps:
+      - name: deploy application
+        run: echo "DEPLOYED $GITHUB_REF"
