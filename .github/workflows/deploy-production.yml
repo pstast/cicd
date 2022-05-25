@@ -1,8 +1,7 @@
 name: deploy-production
 on:
-  push:
-    tags:
-    - 'v*'
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
