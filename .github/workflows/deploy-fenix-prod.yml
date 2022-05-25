@@ -1,21 +1,13 @@
-name: deploy-production
+name: deploy-fenix-prod
 on:
   release:
     types: [published]
   workflow_dispatch:
 
 jobs:
-  deploy-fenix:
+  deploy-fenix-prod:
     runs-on: ubuntu-20.04
     environment: fenix
-
-    steps:
-      - name: deploy application
-        run: echo "DEPLOYED $GITHUB_REF"
-        
-  deploy-trade:
-    runs-on: ubuntu-20.04
-    environment: trade
 
     steps:
       - name: deploy application
