@@ -12,8 +12,8 @@ if [ -n "$TAGS" ]; then
     exit
 fi
 
-echo git tag
-git tag
+# fetch all tags
+git fetch origin --tags --quiet
 
 LASTTAG=$(git tag | grep -E '^r[0-9]+$' | sort -n -r | head -n 1)
 
