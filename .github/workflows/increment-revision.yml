@@ -1,0 +1,19 @@
+name: Revision number increment
+
+on:
+  push:
+    branches:
+      - main
+    tags-ignore:
+      - r*
+
+jobs:
+  revision:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          token: ${{ secrets.ACCESS_TOKEN }}
+      - run: git config user.email "$GITHUB_ACTOR@users.noreply.github.com"
+      - run: git config user.name "$GITHUB_ACTOR"
+      - run: bash .github/tag.sh
