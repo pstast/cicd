@@ -12,6 +12,9 @@ if [ -n "$TAGS" ]; then
     exit
 fi
 
+echo git tag
+git tag
+
 LASTTAG=$(git tag | grep -E '^r[0-9]+$' | sort -n -r | head -n 1)
 
 if [ -z "$LASTTAG" ]; then
