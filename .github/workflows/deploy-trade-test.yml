@@ -10,8 +10,10 @@ on:
   # allow manual trigger
   workflow_dispatch:
 
+concurrency: deploy-trade-test
+
 jobs:
-  deploy-trade-prod:
+  deploy-trade-test:
     # run only if tests succeeded (or manual run)
     if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-20.04
@@ -19,4 +21,4 @@ jobs:
 
     steps:
       - name: deploy application
-        run: echo "DEPLOY $GITHUB_REF $GITHUB_SHA"
+        run: echo "DEPLOY $GITHUB_REF $GITHUB_SHA" && sleep 30
