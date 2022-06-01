@@ -1,4 +1,4 @@
-name: test
+name: Master test
 
 on:
   push:
@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: run tests
-        run: echo 'SUCCESS!'
+        run: echo 'TEST SUCCESS!'
