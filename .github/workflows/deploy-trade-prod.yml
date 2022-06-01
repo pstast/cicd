@@ -11,4 +11,4 @@ jobs:
 
     steps:
       - name: deploy application
-        run: echo "DEPLOYED $GITHUB_REF"
+        run: echo "DEPLOY $GITHUB_REF $GITHUB_SHA"
