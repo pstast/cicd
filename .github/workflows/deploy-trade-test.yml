@@ -1,13 +1,18 @@
 name: deploy-trade-test
 
 on:
+  # trigger after tests
   workflow_run:
     workflows: [Master test]
     types:
       - completed
 
+  # allow manual trigger
+  workflow_dispatch:
+
 jobs:
   deploy-trade-prod:
+    # run only if tests succeeded
     if: ${{ github.event.workflow_run.conclusion == 'success' }}
     runs-on: ubuntu-20.04
     environment: trade-test
