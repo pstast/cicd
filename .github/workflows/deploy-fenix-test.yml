@@ -1,0 +1,22 @@
+name: deploy-fenix-test
+
+on:
+  # trigger after tests
+  workflow_run:
+    workflows: [Master test]
+    types:
+      - completed
+
+  # allow manual trigger
+  workflow_dispatch:
+
+jobs:
+  deploy-fenix-test:
+    # run only if tests succeeded (or manual run)
+    if: github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-20.04
+    environment: fenix-test
+
+    steps:
+      - name: deploy application
+        run: echo "DEPLOY $GITHUB_REF $GITHUB_SHA"
