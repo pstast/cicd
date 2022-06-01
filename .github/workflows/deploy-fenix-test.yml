@@ -10,6 +10,8 @@ on:
   # allow manual trigger
   workflow_dispatch:
 
+concurrency: deploy-fenix-test
+
 jobs:
   deploy-fenix-test:
     # run only if tests succeeded (or manual run)
