@@ -1,0 +1,17 @@
+name: deploy-trade-test
+
+on:
+  workflow_run:
+    workflows: [Master test]
+    types:
+      - completed
+
+jobs:
+  deploy-trade-prod:
+    if: ${{ github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-20.04
+    environment: trade-test
+
+    steps:
+      - name: deploy application
+        run: echo "DEPLOYED $GITHUB_REF"
