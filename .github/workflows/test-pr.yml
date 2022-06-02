@@ -1,0 +1,14 @@
+name: PR test
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    runs-on: ubuntu-20.04
+
+    steps:
+      - name: run tests
+        run: echo "$GITHUB_REF $GITHUB_SHA"
