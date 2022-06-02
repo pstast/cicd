@@ -8,7 +8,7 @@ concurrency: deploy-trade-prod
 jobs:
   deploy-trade-prod:
     runs-on: ubuntu-20.04
-    environment: trade
+    environment: trade-prod
 
     steps:
       - name: deploy application
