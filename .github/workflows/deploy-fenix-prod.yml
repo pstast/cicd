@@ -8,7 +8,7 @@ concurrency: deploy-fenix-prod
 jobs:
   deploy-fenix-prod:
     runs-on: ubuntu-20.04
-    environment: fenix
+    environment: fenix-prod
 
     steps:
       - name: deploy application
