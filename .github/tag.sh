@@ -15,7 +15,7 @@ fi
 # fetch all tags
 git fetch origin --tags --quiet
 
-LASTTAG=$(git tag | grep -E '^r[0-9]+$' | sort -n -r | head -n 1)
+LASTTAG=$(git tag | grep -E '^r[0-9]+$' | sort -t r -k 2 -n -r | head -n 1)
 
 if [ -z "$LASTTAG" ]; then
     LASTTAG=r0
